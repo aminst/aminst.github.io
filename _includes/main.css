@@ -1,5 +1,5 @@
 body {
-    font-family: 'Times New Roman', Helvetica,Arial,sans-serif;
+    font-family: 'Century Gothic', Helvetica,Arial,sans-serif;
     background-color: rgba(0, 0, 0, 0);
     position: absolute;
     top: 0;
@@ -31,7 +31,7 @@ h1 {
     font-weight: normal;
     letter-spacing: 0.1em;
     font-size: 4em;
-    font-family: Helvetica;
+    font-family: 'Century Gothic';
     margin: -10px 0;
 }
 h3 {
@@ -118,7 +118,7 @@ a:hover {
 .description {
     display: inline-block;
     color: black;
-    font-family: Helvetica;
+    font-family: 'Century Gothic';
     margin-left: 40px;
     font-weight: normal;
 }
