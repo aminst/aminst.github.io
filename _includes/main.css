@@ -36,12 +36,12 @@ h1 {
 }
 h3 {
     color: black;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
     font-weight: bold;
 }
 .content {
     padding-top: 100px;
-    padding-bottom: 40px;
+    padding-bottom: 0px;
     background-color: rgba(0, 0, 0, 0);
     text-align: center;
 }
