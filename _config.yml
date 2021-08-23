@@ -1,9 +1,9 @@
 # Theme
-remote_theme: epidrome/cover-card@main
+remote_theme: aminst/aminst.github.io@main
 
 # Title and tag line
-title: 'My name'
-description: 'I am amazing.'
+title: 'Amin Setayesh'
+description: 'I am a computer engineering student at the University of Tehran.'
 
 # Images
 avatar: 'avatar.jpg'
@@ -11,31 +11,11 @@ background: 'background.jpg'
 favicon: 'favicon.ico'
 
 # Online profiles
-#dribbble: 'mydribbble'
-facebook: 'myfacebook'
-twitter: 'mytwitter'
-#linkedin: 'mylinkedin'
-instagram: 'myinsta'
-#pinterest: 'mypinterest'
-youtube: 'myyoutube'
-github-user: 'mygithub'
-#gitlab-user: ''
-#codepen: ''
-#steam: ''
-#soundcloud: ''
-#lastfm: ''
-#stack-overflow: ''
-#reddit: ''
-#rubygems: ''
-#medium:  ''
-tumblr: 'mytumblr'
-weibo: 'myweibo'
-vk: 'myvk'
-blog_url: 'myblog.blog.com'
-email: 'hello@example.com'
-messenger: 'myfbchat'
+linkedin: 'amin-setayesh'
+github-user: 'aminst'
+email: 'aminst79@gmail.com'
 
-social-links-order: [github-user, facebook, twitter, instagram, tumblr, pinterest, linkedin, youtube, vk, weibo, dribbble, messenger, blog_url, email]
+social-links-order: [email, linkedin, github-user]
 
 # Yaml manifest of supported social links
 # Requirements:
