@@ -3,7 +3,7 @@ layout: post
 title: Time, Clocks, and the ordering of events in a distributed system
 subtitle: Leslie Lamport explains how a total ordering of events helps in implementing a distributed state machine.
 cover-img: assets/img/time-events-ordering.jpg
-tags: [life]
+tags: [distributed systems]
 ---
 [Time, Clocks, and the Ordering of Events in a Distributed System](https://lamport.azurewebsites.net/pubs/time-clocks.pdf) is a very interesting paper that discusses how a total order between events helps in building distributed systems. [According](https://www.youtube.com/watch?v=nfRouGH0oMg) to Leslie Lamport, there are many misconceptions about this paper; many people think that the main idea is the logical timestamp (known as Lamport timestamp), but the main claim of the paper is how to use these *techniques* to design a state machine on distributed machines. The paper has interesting insights about how to keep a partial ordering of events to maintain causality. It then introduces how one can extend the partial ordering to a total ordering of events. To me, where the magic happens is how one can design a distributed algorithm using the total ordering. The paper solves the mutual exclusion problem as an example of this.
 
