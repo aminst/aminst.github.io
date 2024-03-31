@@ -1,0 +1,29 @@
+---
+layout: post
+title: Time, Clocks, and the ordering of events in a distributed system
+subtitle: Leslie Lamport explains how a total ordering of events helps in implementing a distributed state machine.
+cover-img: assets/img/time-events-ordering.jpg
+tags: [life]
+---
+[Time, Clocks, and the Ordering of Events in a Distributed System](https://lamport.azurewebsites.net/pubs/time-clocks.pdf) is a very interesting paper that discusses how a total order between events helps in building distributed systems. [According](https://www.youtube.com/watch?v=nfRouGH0oMg) to Leslie Lamport, there are many misconceptions about this paper; many people think that the main idea is the logical timestamp (known as Lamport timestamp), but the main claim of the paper is how to use these *techniques* to design a state machine on distributed machines. The paper has interesting insights about how to keep a partial ordering of events to maintain causality. It then introduces how one can extend the partial ordering to a total ordering of events. To me, where the magic happens is how one can design a distributed algorithm using the total ordering. The paper solves the mutual exclusion problem as an example of this.
+
+# Partial Order of Events
+Leslie Lamport argues that we can only agree on a partial ordering of events and then extend it however we want to reach a total ordering. But, why can't we just use the physical clocks to agree on a total ordering of events? Wouldn't that make everything easier?  
+The answer is that physical clocks drift over time. This argument reminds me of the [There is No Now](https://queue.acm.org/detail.cfm?id=2745385), which discusses why we can't build a perfect mechanism to synchronize clocks (TL;DR we live in a physical world and cannot prevent failures). If we agree with this claim, it would make sense to first determine the events that we can confidently order and then extend this ordering to establish a complete sequence, ideally reflecting reality.
+## Happened Before
+The paper defines a *happened before* relation, showed with $a \rightarrow b$. $a \rightarrow b$ means that either (1) a and b are on the same process and a comes before b (we can easily know this on a single processor since it's sequential) or  (2) if we send a message from one process to another process, the event of sending the message (event a) *happened before* the event of receiving the message (event b). These are just simple cause-and-effect relations that we are completely sure about. (1) If I get out of my bed and then eat breakfast, I'm sure that getting out of bed happens before eating breakfast. (2) If I send a message to a friend I can be sure that sending it happened before they received it. The happened before relation is transitive, which means that if $a \rightarrow b $ and $b \rightarrow c$ then $a \rightarrow c$. For example, if I send a text message to a friend and they get angry about it, sending the text happened before they got angry.  
+The most important thing about the *happened before* relation is that it does not give us any order about concurrent events. If I wake up and at the same time my friend eats breakfast. We don't know what event happened before the other event. Without extra communication, these two people are unaware of what's happening to the other person. This is rather unintuitive since we have physical clocks in the real world and we decide what happened before by knowing the physical time. We don't have any global clock between our processes; we only know about causations.
+
+The next question is how to implement a system that maintains the *happened before* relation. Clocks! But, didn't we say that we can't have a global clock in a distributed system? We don't need to have a global clock, only local clocks on each processor. The clocks don't even have to be like how we use clocks. They are logical clocks where each of the clocks is only an integer number. We can maintain the happened before relation with two simple steps:
+* Every time a processor does something (an event) it increments its local logical time.
+* Every time a processor gets a message, it increments its counter to be more than the message's logical time (the sending processor's logical time).
+
+# Total Order of Events
+What is the point of a partial order of events? How can it help since we only know the ordering of a subset of events? It unlocks something very important: we can arrange events with a cause-and-effect relationship first, and then organize the rest however we like. For example, If I (a) eat breakfast after (b) waking up and (c) someone plays basketball at the same time, we should order a before b, but we can order c anywhere we want.
+
+The total order is an arbitrary extension of the partial order of the events. One can decide how they want to create this arbitrary order. For example, a simple way of extending the partial order to a total order is to use process IDs. However, any order is correct until it preserves the partial order of events. Another way that is more natural is to order the other events based on physical clocks. Lamport defines how one can use physical clocks to create such ordering.
+
+# Distributed Algorithms
+> Being able to totally order the events can be very useful in implementing a distributed system. In fact, the reason for implementing a correct system of logical clocks is to obtain such total ordering.
+
+Leslie Lamport solves the mutual exclusion problem in a distributed setting using a total ordering based on logical clocks. I don't get into the details of the algorithm here, but I suggest you read the paper. It is indeed a very interesting showcase of why we care about having a total ordering of events.
