@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<h1>Today I Learned (TIL)</h1>
+
+<ul>
+  {% for post in site.posts %}
+    {% if post.category == "TIL" %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

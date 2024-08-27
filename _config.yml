@@ -20,6 +20,7 @@ author: Amin Setayesh
 ###############################################
 
 navbar-links:
+  Today I Learned (TIL): "til"
   About Me: "aboutme"
 
 ################
@@ -297,6 +298,10 @@ exclude:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
+
+collections:
+  til:
+    output: true
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
