@@ -8,6 +8,7 @@ subtitle: "A collection of interesting discoveries and resources"
 
 Welcome to my collection of interesting discoveries, useful resources, and noteworthy content from around the web. I'll be updating this page regularly with links that I find valuable and worth sharing.
 
+- [Predicting the Future of Distributed Systems - Colin Breck](https://blog.colinbreck.com/predicting-the-future-of-distributed-systems/#fn5)
 - [Lex Fridman & Pieter Levels](https://www.youtube.com/watch?v=oFtjKbXKqbg)
 - [No More Blue Fridays - Brenden Gregg](https://www.brendangregg.com/blog/2024-07-22/no-more-blue-fridays.html)
 - [Will AI Chickens come home to roost? - Doug Turnbull](https://softwaredoug.com/blog/2024/07/31/will-ai-chickens.html)
